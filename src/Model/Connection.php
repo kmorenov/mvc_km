@@ -6,7 +6,10 @@
  * Time: 12:08 PM
  */
 
-class Connection1
+class Connection
 {
-
+    protected function getConnection()
+    {
+        return new PDO('mysql:host=' . HOST . ';dbname=' . DATABASE, USER, PASSWORD);
+    }
 }

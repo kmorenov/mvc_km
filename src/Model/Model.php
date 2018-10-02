@@ -6,13 +6,8 @@
  * Time: 4:39 AM
  */
 
-class Model
+class Model extends Connection
 {
-    private function getConnection()
-    {
-        return new PDO('mysql:host=' . HOST . ';dbname=' . DATABASE, USER, PASSWORD);
-    }
-
     private function getNumberOfPages($dbh)
     {
         $sql = "SELECT COUNT(*) AS 'rows' FROM news";
@@ -26,8 +21,8 @@ class Model
 
     public function getPosts()
     {
-        DEFINE("ROWS_PER_PAGE", 3);
-        $dbh = $this->getConnection();
+        DEFINE('ROWS_PER_PAGE', 30);
+        $dbh = parent::getConnection();
 
         $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 
@@ -35,26 +30,25 @@ class Model
         $stmt = $dbh->query($sql);
 
         while ($res[] = $stmt->fetch()) {
-            $news = $res;
+            $arr['news'] = $res;
         }
 
-        $arr["news"] = $news;
-        $arr["num_pages"] = $this->getNumberOfPages($dbh);
+        $arr['num_pages'] = $this->getNumberOfPages($dbh);
         return $arr;
     }
 
     public function getPost($id)
     {
-        $dbh = $this->getConnection();
+        $dbh = parent::getConnection();
         $newsid = $id;
         $sql = "SELECT * FROM news WHERE news_id=" . $newsid;
         $stmt = $dbh->query($sql);
 
         while ($res[] = $stmt->fetch())
         {
-            $news = $res;
+            $arr = $res;
         }
 
-        return $news;
+        return $arr;
     }
 }

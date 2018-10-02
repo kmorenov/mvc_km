@@ -15,6 +15,6 @@ abstract class AbstractController
 
     protected function getModel($model)
     {
-        return new Model();
+        return new $model;
     }
 }

@@ -6,7 +6,7 @@
  * Time: 4:31 AM
  */
 
-class Controller extends AbstractController
+class MainController extends AbstractController
 {
     public function index()
     {
@@ -32,5 +32,4 @@ class Controller extends AbstractController
         http_response_code(404);
         $this->render('views/404.php', null);
     }
-
 }

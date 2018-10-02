@@ -21,6 +21,7 @@ class ViewHelper
         return $qstr;
     }
 
+
 /*    public function pagination()
     {
         if ($arr["num_pages"] > 1) {
