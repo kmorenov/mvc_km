@@ -11,25 +11,27 @@ class MainController extends AbstractController
     public function index()
     {
         $model = $this->getModel(Model::class);
+
         $arr = $model->getPosts();
-        $vh = new ViewHelper('post');
-        $this->render('views/index.php', $arr, $vh);
+        $arr['template'] = 'views/index.php';
+
+        $this->render($arr);
     }
 
     public function post()
     {
         $id = filter_input(INPUT_GET, 'id');
-        $post = $this->getModel(Model::class)->getPost($id);
-        if (!$post) {
-            return $this->render('views/404.php', null);
+        $arr = $this->getModel(Model::class)->getPost($id);
+        if (!$arr) {
+            return $this->render($arr['template'] = 'views/404.php');
         }
-
-        $this->render('views/edit_post.php', $post);
+        $arr['template'] = 'views/edit_post.php';
+        $this->render($arr);
     }
 
     public function pageNotFound()
     {
         http_response_code(404);
-        $this->render('views/404.php', null);
+        $this->render($arr['template'] = 'views/404.php');
     }
 }

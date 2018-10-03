@@ -5,17 +5,10 @@
  * Date: 25/09/18
  * Time: 7:51 AM
  */
-
 class ViewHelper
 {
-    public $route;
 
-    public function __construct($route)
-    {
-        $this->route = $route;
-    }
-
-    public function myLink($id, $route)
+    public static function myLink($id, $route)
     {
         $qstr = 'index.php?id=' . $id . '&route=' . $route;
         return $qstr;

@@ -8,8 +8,9 @@
  */
 abstract class AbstractController
 {
-    protected function render($template, $arr, $vh = null)
+    protected function render($arr)
     {
+        $template = $arr['template'];
         include $template;
     }
 

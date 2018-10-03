@@ -10,11 +10,11 @@
 <?php if (!empty($arr['news'])) { ?>
     <table class="table">
         <?php foreach ($arr['news'] as $value) { ?>
-            <td><a href=" <?php echo $vh->myLink($value['news_id'], $vh->route) ?> ">
+            <td><a href=" <?php echo ViewHelper::myLink($value['news_id'], 'post') ?> ">
                     <img src=" <?php echo $value['news_image'] ?> " title="<?php echo $value['category_id'] ?>"
                          height=200>
                 </a><br/>
-                <a href="<?php echo $vh->myLink($value['news_id'], $vh->route) ?>"><?php echo $value['news_name'] ?> :
+                <a href="<?php echo ViewHelper::myLink($value['news_id'], 'post') ?>"><?php echo $value['news_name'] ?> :
                     <?php echo $value['short_description'] ?>
                 </a>
             </td>

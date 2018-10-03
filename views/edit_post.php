@@ -11,29 +11,29 @@
     <div class="container">
         <div class="row">
             <form action="update_news.php" method="post" class="form-horizontal col-md-10 col-md-offset-2">
-                <?= '<h1>' . $arr[0]["news_name"] . ' State Motto</h1>' ?>
+                <h1> <?= $arr["news_name"] ?> State Motto</h1>
                 <div class="form-group">
                 <label class="col-md-2">Post ID</label><div class="col-md-10">
-                    <input type="text" readonly name="news_id" value="<?php echo $arr[0]["news_id"]; ?>" /></div>
+                    <input type="text" readonly name="news_id" value="<?php echo $arr["news_id"]; ?>" /></div>
             </div>
             <div class="form-group">
                 <label class="col-md-2">Post Name</label><div class="col-md-10">
-                    <input type="text" name="news_name" value="<?php echo $arr[0]["news_name"]; ?>" /></div>
+                    <input type="text" name="news_name" value="<?php echo $arr["news_name"]; ?>" /></div>
             </div>
             <div class="form-group">
                 <label class="col-md-2">Short Description</label><div class="col-md-10">
-                    <input type="text" name="short_description" value="<?php echo $arr[0]["short_description"]; ?>" /></div>
+                    <input type="text" name="short_description" value="<?php echo $arr["short_description"]; ?>" /></div>
             </div>
             <div class="form-group">
                 <label class="col-md-2">Description</label><div class="col-md-10">
-                    <input type="text" name="description" value="<?php echo $arr[0]["description"]; ?>" /></div>
+                    <input type="text" name="description" value="<?php echo $arr["description"]; ?>" /></div>
             </div>
             <div class="form-group">
                 <label class="col-md-2">Date</label><div class="col-md-10">
-                    <input type="date" name="date" value="<?php echo $arr[0]["date"]; ?>" /></div>
+                    <input type="date" name="date" value="<?php echo $arr["date"]; ?>" /></div>
             </div>
-                <input type="file" name="news_image" value="<?php echo $arr[0]["news_image"] ?>" />
-                <img src="./<?php echo $arr[0]["news_image"] ?>">
+                <input type="file" name="news_image" value="<?php echo $arr["news_image"] ?>" />
+                <img src="./<?php echo $arr["news_image"] ?>">
 
             <div class="form-group">
                 <label class="col-md-2">Category ID</label>
@@ -41,14 +41,14 @@
                         <select name="category_id">
                             <?php
                             echo '<br/>$_SESSION[category_id]';// . $_SESSION['category_id'];
-                            for($i=0; $i<count($arr[0]["category_id"]); $i++){?>
+//                            for($i=0; $i<count($arr[$i]["category_id"]); $i++){?>
 
-                                <option value="<?php echo $arr[$i]["category_id"]; ?>"
-                                    <?php echo !empty($_SESSION['category_id']) && $_SESSION['category_id'] == $arr[0]['category_id']
-                                        ? 'selected' : ''; ?> ><?php echo $arr[$i]["category_id"]; ?>
+                                <option value="<?php echo $arr["category_id"]; ?>"
+                                    <?php echo !empty($_SESSION['category_id']) && $_SESSION['category_id'] == $arr['category_id']
+                                        ? 'selected' : ''; ?> ><?php echo $arr["category_id"]; ?>
                                 </option>
 
-                            <?php } ?>
+<!--                            --><?php //} ?>
 
                         </select>
                     </div>

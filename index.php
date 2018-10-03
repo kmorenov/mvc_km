@@ -1,4 +1,6 @@
 <?php
+session_start();
+ini_set('display_errors', 1);
 
 require 'src/Model/ViewHelper.php';
 require 'src/Controller/AbstractController.php';
