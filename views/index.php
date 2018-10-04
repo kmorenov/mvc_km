@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 </head>
 <body>
-<?php if (!empty($arr['news'])) { ?>
+<?php extract($arr); if (!empty($news)) { ?>
     <table class="table">
-        <?php foreach ($arr['news'] as $value) { ?>
-            <td><a href=" <?php echo ViewHelper::myLink($value['news_id'], 'post') ?> ">
-                    <img src=" <?php echo $value['news_image'] ?> " title="<?php echo $value['category_id'] ?>"
+        <?php foreach ($news as $value) {extract($value) ?>
+            <td><a href=" <?php echo ViewHelper::myLink($news_id, 'post') ?> ">
+                    <img src=" <?php echo $news_image ?> " title="<?php echo $category_id ?>"
                          height=200>
                 </a><br/>
-                <a href="<?php echo ViewHelper::myLink($value['news_id'], 'post') ?>"><?php echo $value['news_name'] ?> :
-                    <?php echo $value['short_description'] ?>
+                <a href="<?php echo ViewHelper::myLink($news_id, 'post') ?>"><?php echo $news_name ?> :
+                    <?php echo $short_description ?>
                 </a>
             </td>
         <?php } ?>
