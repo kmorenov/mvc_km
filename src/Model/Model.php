@@ -6,7 +6,7 @@
  * Time: 4:39 AM
  */
 
-class Model extends Connection
+class Model
 {
     private function getNumberOfPages($dbh)
     {
@@ -20,7 +20,7 @@ class Model extends Connection
     public function getPosts()
     {
         DEFINE('ROWS_PER_PAGE', 5);
-        $dbh = parent::getConnection();
+        $dbh = Connection::getConnection();
 
         $page = !empty($_GET['page']) ? filter_input(INPUT_GET, $_GET['page']) : 1;
 
@@ -35,7 +35,7 @@ class Model extends Connection
 
     public function getPost($id)
     {
-        $dbh = parent::getConnection();
+        $dbh = Connection::getConnection();
 
         $sql = 'SELECT * FROM news WHERE news_id=' . $id;
         $stmt = $dbh->query($sql);

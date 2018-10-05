@@ -8,8 +8,15 @@
 
 class Connection
 {
-    protected function getConnection()
+    private static $connection;
+    private function __construct(){}
+    private function __clone(){}
+
+    public static function getConnection()
     {
-        return new PDO('mysql:host=' . HOST . ';dbname=' . DATABASE, USER, PASSWORD);
+        if (!isset(self::$connection)) {
+            self::$connection = new PDO('mysql:host=' . HOST . ';dbname=' . DATABASE, USER, PASSWORD);
+        }
+        return self::$connection;
     }
 }
